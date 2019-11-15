@@ -4,8 +4,8 @@ from . import views
 
 urlpatterns=[
     url(r'^$', views.index),
-    url(r'^login/', auth_views.LoginView.as_view(), name="login"),
-    url(r'^logout/', auth_views.LogoutView.as_view(), name="logout"),
+    url(r'^logout/$', auth_views.logout, {'next_page' : '/'}),
+    url(r'^login/$', auth_views.login,  {'template_name':'memo_app/login.html'}),
     url(r'^forus/',views.forus, name="forus")
   
     
