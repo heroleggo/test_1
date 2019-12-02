@@ -120,3 +120,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL='/../..'
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.18.15']

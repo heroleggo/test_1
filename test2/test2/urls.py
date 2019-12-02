@@ -21,6 +21,6 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('home.urls')),
     url(r'^accounts/', include('django.contrib.auth.urls')),
-    url(r'^accounts/signup$', home_views.CreateUserView.as_view(), name = 'signup')
+    url(r'^accounts/signup$', home_views.CreateUserView.as_view(), name = 'signup'),
 
 ]
