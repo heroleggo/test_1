@@ -16,7 +16,7 @@ def forus(request):
     return render(request, 'home/forus.html')
 
 def logout(request):
-    return render(request, 'registration/logout.html')
+    return render(request, 'home/logout.html')
 
 def game(request):
     return render(request, 'home/game.html')
