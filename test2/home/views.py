@@ -23,4 +23,7 @@ class CreateUserView(CreateView): # generic view중에 CreateView를 상속받�
     # 성공하면 어디로?
 
 class RegisteredView(TemplateView): # generic view중에 TemplateView를 상속받는다.
-    template_name = 'registration/signup_done.html' # 템플릿은?
+    template_name = 'registration/login.html' # 템플릿은?
+
+def logout(request):
+    return redirect('home/logout.html')
