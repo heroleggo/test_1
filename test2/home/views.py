@@ -5,7 +5,6 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView
 from .forms import CreateUserForm
-from django.urls import reverse_lazy
 
 
 # Create your views here.
@@ -15,6 +14,9 @@ def index(request):
 
 def forus(request):
     return render(request, 'home/forus.html')
+
+def logout(request):
+    return render(request, 'home/logout.html')
 
 class CreateUserView(CreateView): # generic view중에 CreateView를 상속받는다.
     template_name = 'registration/signup.html' # 템플릿은?
