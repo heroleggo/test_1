@@ -16,7 +16,10 @@ def forus(request):
     return render(request, 'home/forus.html')
 
 def logout(request):
-    return render(request, 'home/logout.html')
+    return render(request, 'registration/logout.html')
+
+def game(request):
+    return render(request, 'home/game.html')
 
 class CreateUserView(CreateView): # generic view중에 CreateView를 상속받는다.
     template_name = 'registration/signup.html' # 템플릿은?
