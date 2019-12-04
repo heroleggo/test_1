@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView
 from .forms import CreateUserForm
 from django.urls import reverse_lazy
+from django.contrib.auth.models import User
+from .models import GameInfo
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -15,7 +18,7 @@ def index(request):
 def forus(request):
     return render(request, 'home/forus.html')
 
-
+@login_required
 def game(request):
     return render(request, 'home/game.html')
 
@@ -29,3 +32,13 @@ class CreateUserView(CreateView): # generic view중에 CreateView를 상속받�
 
 class RegisteredView(TemplateView): # generic view중에 TemplateView를 상속받는다.
     template_name = 'registration/signup_done.html' # 템플릿은?
+
+@login_required
+def game_selected(request):
+    user = get_user_model()
+    games = GameInfo.objects.filter(UserID = user.username)
+    if games.Game1 == "1900-01-01":
+        return redirect('home/credit.html')
+    
+    else:
+        return redirect(request, 'home/test.html')
